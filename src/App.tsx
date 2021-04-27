@@ -1,15 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
 
 import "./App.css";
 import PhotoContext from "./components/Api/PhotoContext";
+import Item from "./components/Api/Item";
 
-function App() {
-  return (
-    <PhotoContext>
-      <div>Test</div>
-    </PhotoContext>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <PhotoContext>
+          <Item props="test" />
+        </PhotoContext>
+      </div>
+    );
+  }
 }
 
 export default App;

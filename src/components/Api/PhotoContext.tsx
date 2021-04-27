@@ -2,12 +2,12 @@ import React, { createContext, useState } from "react";
 import axios from "axios";
 import { apiKey } from "../Api/config";
 export interface PhotoContextProps {
-  term: string;
+  images: any;
 }
 
-export const PhotoContextProvider: any = createContext(null);
+export const PhotoContext: null | any = createContext(null);
 
-const PhotoContext = (props: any) => {
+export const PhotoContextProvider = (props: any): any => {
   const [images, setImages] = useState<any>([]);
   const imageResponse: any = axios
     .get(
@@ -16,9 +16,9 @@ const PhotoContext = (props: any) => {
     .then((response) => setImages(response));
 
   return (
-    <PhotoContextProvider.Provider value={{ images }}>
+    <PhotoContext.Provider value={{ images }}>
       {props.children}
-    </PhotoContextProvider.Provider>
+    </PhotoContext.Provider>
   );
 };
 
